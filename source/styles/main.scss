@@ -1,19 +1,19 @@
-$alert-color-1: #FFC12D; //background
+$alert-color-1: #FFC12E; //background
 $alert-color-2: #F9B718; //border
 $alert-color-3: #A47503; //icon
-$success-color-1: #97E411;
-$success-color-2: #7BC200;
+$success-color-1: #A7EC2F;
+$success-color-2: #7BC300;
 $success-color-3: #558502;
-$fail-color-1: #FD7761;
-$fail-color-2: #F55C43;
+$fail-color-1: #FFB1A5;
+$fail-color-2: #F55B43;
 $fail-color-3: #D52E13;
-$energy-color-1: #6FD9FC;
-$energy-color-2: #47B4F6;
+$energy-color-1: #85EBFA;
+$energy-color-2: #47B4F5;
 $energy-color-3: #0787D4;
-$info-color-1: #A39CDC;
+$info-color-1: #AACDF5;
 $info-color-2: #8781BD;
 $info-color-3: #5B568E;
-$color-4: #A1B1BC;
+$color-4: #2D3E50;
 $color-5: #CFD2D3;
 $color-6: #E2E6E7;
 
@@ -47,6 +47,7 @@ body {
     border: 1px $color-6 solid;
     border-radius: 10px;
     width: 100%;
+    background-color: $alert-color-1;
 
     div {
         font-size: 14px;
@@ -108,42 +109,59 @@ body {
 }
 
 .alert {
+    background-color: $alert-color-1;
     div::before { // Specify color, icons, and border for each element.
         content: "\F12A";
         color: $alert-color-3;
         border: 7px $alert-color-2 solid;
         background-color: $alert-color-1;
     }
+    a::before {
+        color: $alert-color-3;
+    }
 }
 
 .success {
+    background-color: $success-color-1;
     div::before {
         content: "\F00C";
         color: $success-color-3;
         border: 7px $success-color-2 solid;
         background-color: $success-color-1;
     }
+    a::before {
+        color: $success-color-3;
+    }
 }
 
 .fail {
+    background-color: $fail-color-1;
     div::before {
         content: "\F00D";
         color: $fail-color-3;
         border: 7px $fail-color-2 solid;
         background-color: $fail-color-1;
     }
+    a::before {
+        color: $fail-color-3;
+    }
 }
 
 .energy {
+    background-color: $energy-color-1;
     div::before {
         content: "\F0E7";
         color: $energy-color-3;
         border: 7px $energy-color-2 solid;
         background-color: $energy-color-1;
     }
+    a::before {
+        color: $energy-color-3;
+    }
 }
 
 .info {
+    background-color: $info-color-1;
     grid-column: span 2;
     div::before {
         content: "\F129";
@@ -152,6 +170,9 @@ body {
         background-color: $info-color-1;
     }
     div span p {
-        padding-right: 40px;
+        padding-right: 60px;
+    }
+    a::before {
+        color: $info-color-3;
     }
 }
