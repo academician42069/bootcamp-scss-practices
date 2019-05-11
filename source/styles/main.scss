@@ -1,6 +1,18 @@
-$color-1: #FFC12D;
-$color-2: #F9B718;
-$color-3: #A47503;
+$alert-color-1: #FFC12D; //background
+$alert-color-2: #F9B718; //border
+$alert-color-3: #A47503; //icon
+$success-color-1: #97E411;
+$success-color-2: #7BC200;
+$success-color-3: #558502;
+$fail-color-1: #FD7761;
+$fail-color-2: #F55C43;
+$fail-color-3: #D52E13;
+$energy-color-1: #6FD9FC;
+$energy-color-2: #47B4F6;
+$energy-color-3: #0787D4;
+$info-color-1: #A39CDC;
+$info-color-2: #8781BD;
+$info-color-3: #5B568E;
 $color-4: #A1B1BC;
 $color-5: #CFD2D3;
 $color-6: #E2E6E7;
@@ -21,26 +33,20 @@ body {
     display: grid;
     grid-template-columns: 570px 570px;
     grid-column-gap: 30px;
+    grid-row-gap: 29px;
     margin: 100px auto;
-    // padding: 180px 375px;
     width: 600px;
-    // height: 150px;
 }
 
-.alert {
-
+.notification { //General template
     display: grid;
     grid-template-areas: "link"
                          "text";
     grid-template-rows: 26px auto;
-    // grid-template-columns: 50px auto;
-    // grid-column-gap: 30px;
-    // align-items: center;
     padding: 14px 0 34px 0;
     border: 1px $color-6 solid;
     border-radius: 10px;
     width: 100%;
-
 
     div {
         font-size: 14px;
@@ -49,42 +55,39 @@ body {
         margin-left: 50px;
 
         &::before {
-            // grid-area: icon;
             grid-column: 1;
             margin-right: 28px;
             margin-top: 3px;
-            // margin-left: 50px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             height: 50px;
-            // width: 50px;
             min-width: 50px;
             font-family: FontAwesome;
-            content: "\F12A";
             font-size: 24px;
-            color: $color-3;
-            border: 7px $color-2 solid;
             border-radius: 50%;
-            background-color: $color-1;
+            content: "\F12A"; //Default set is the alert one
+            color: $alert-color-3;
+            background-color: $alert-color-1;
+            border: 7px $alert-color-2 solid;
+        }
+    }
+
+    span {
+        grid-column: 2;
+        h3 {
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            margin-bottom: 9px;
         }
 
-        span {
-            grid-column: 2;
-            h3 {
-                font-size: 15px;
-                font-weight: 900;
-                letter-spacing: 0.7px;
-                text-transform: uppercase;
-                margin-bottom: 9px;
-            }
-
-            p {
-                margin-left: 1px;
-                color: $color-4;
-                line-height: 24px;
-                padding-right: 60px;
-            }
+        p {
+            margin-left: 1px;
+            color: $color-4;
+            line-height: 24px;
+            padding-right: 60px;
         }
     }
 
@@ -102,6 +105,53 @@ body {
             color: $color-5;
         }
     }
-
 }
 
+.alert {
+    div::before { // Specify color, icons, and border for each element.
+        content: "\F12A";
+        color: $alert-color-3;
+        border: 7px $alert-color-2 solid;
+        background-color: $alert-color-1;
+    }
+}
+
+.success {
+    div::before {
+        content: "\F00C";
+        color: $success-color-3;
+        border: 7px $success-color-2 solid;
+        background-color: $success-color-1;
+    }
+}
+
+.fail {
+    div::before {
+        content: "\F00D";
+        color: $fail-color-3;
+        border: 7px $fail-color-2 solid;
+        background-color: $fail-color-1;
+    }
+}
+
+.energy {
+    div::before {
+        content: "\F0E7";
+        color: $energy-color-3;
+        border: 7px $energy-color-2 solid;
+        background-color: $energy-color-1;
+    }
+}
+
+.info {
+    grid-column: span 2;
+    div::before {
+        content: "\F129";
+        color: $info-color-3;
+        border: 7px $info-color-2 solid;
+        background-color: $info-color-1;
+    }
+    div span p {
+        padding-right: 40px;
+    }
+}
