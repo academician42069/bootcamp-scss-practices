@@ -1,0 +1,69 @@
+.notification { //General template
+    display: grid;
+    grid-template-areas: "link"
+                         "text";
+    grid-template-rows: 26px auto;
+    padding: 14px 0 34px 0;
+    border: 1px $color-6 solid;
+    border-radius: 10px;
+    width: 100%;
+    background-color: $alert-color-1;
+
+    div {
+        font-size: 14px;
+        grid-area: text;
+        display: flex;
+        margin-left: 50px;
+
+        &::before {
+            grid-column: 1;
+            margin-right: 28px;
+            margin-top: 3px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            min-width: 50px;
+            font-family: FontAwesome;
+            font-size: 24px;
+            border-radius: 50%;
+            content: "\F12A"; //Default set is the alert one
+            color: $alert-color-3;
+            background-color: $alert-color-1;
+            border: 7px $alert-color-2 solid;
+        }
+    }
+
+    span {
+        grid-column: 2;
+        h3 {
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            margin-bottom: 9px;
+        }
+
+        p {
+            margin-left: 1px;
+            color: $color-4;
+            line-height: 24px;
+            padding-right: 60px;
+        }
+    }
+
+    a {
+        grid-area: link;
+        text-decoration: none;
+        color: transparent;
+        margin-right: 17px;
+        justify-self: right;
+
+        &::before {
+            font-family: FontAwesome;
+            font-size: 13px;
+            content: "\F00D";
+            color: $color-5;
+        }
+    }
+}
